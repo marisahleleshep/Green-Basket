@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .product_container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+           text-align: center;
+           /* height: 30%; */
+           
+        }
+        
+        .product {
+            width: 30%;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+            margin-top: 100px;
+        }
+        
+        .product:hover {
+            transform: scale(1.05);
+        }
+        
+        .product_image img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .product_details h3 {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        
+        .product_details p {
+            margin: 5px 0;
+        }
+        
+        .product_details p:first-child {
+            font-weight: bold;
+        }
+        
+        .product_details a {
+            display: inline-block;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: white;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.2s ease-in-out;
+        }
+        
+        .product_details a:hover {
+            background-color: #0056b3;
+        }
+        </style>
+        
+</head>
+<body>
+    <div class="product_container">
+        {% for product in products %}
+        <div class="product">
+            <div class="product_image">
+                <img src="{{product.image.url}}" alt="{{product.name}}">
+            </div>
+            <div class="product_details">
+                <h3>{{product.name}}</h3>
+                <p>{{product_description}}</p>
+                <p>price: {{product.price}}</p>
+                <a href="{% url 'product_description_view' id=product.id %}">View Product</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+</body>
+</html>
