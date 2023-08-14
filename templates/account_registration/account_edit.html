@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Account Registration</title>
+</head>
+<body>
+    <h1>Edit Account Registration</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Changes</button>
+    </form>
+    
+    <a href="{% url 'edit_account_registration_view' id=user.id %}">Edit</a>
+
+</body>
+</html>

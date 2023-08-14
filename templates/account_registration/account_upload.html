@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Account Registration</title>
+</head>
+<body>
+    <h1>Upload Account Registration</h1>
+    
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+    
+    <a href="{% url 'edit_account_registration_view' id=user.id %}">Edit</a>
+
+</body>
+</html>

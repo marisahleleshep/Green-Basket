@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+
+{% block content %}
+<div class="form-container">
+    <h1>Upload Feedback</h1>
+    <form method="POST">
+        {% csrf_token %}
+        
+        <label for="feedback" class="form-label">Feedback:</label>
+        <textarea name="feedback" id="feedback" class="form-input">{{ form.feedback.value }}</textarea>
+        
+        <label for="ratings" class="form-label">Ratings:</label>
+        <input type="text" name="ratings" id="ratings" value="{{ form.ratings.value }}" class="form-input">
+        
+        <button type="submit" class="form-button">Upload Feedback</button>
+    </form>
+</div>
+{% endblock %}
+
+    
+</body>
+</html>

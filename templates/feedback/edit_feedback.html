@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    {% block content %}
+  <h1>Edit Feedback</h1>
+  <form method="POST">
+    {% csrf_token %}
+    
+    <label for="feedback">Feedback:</label>
+    <textarea name="feedback" id="feedback">{{ feedback.feedback }}</textarea><br>
+    
+    <label for="ratings">Ratings:</label>
+    <input type="text" name="ratings" id="ratings" value="{{ feedback.ratings }}"><br>
+    
+    <button type="submit">Save Feedback</button>
+  </form>
+{% endblock %}
+    
+</body>
+</html>

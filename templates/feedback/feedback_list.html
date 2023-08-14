@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <link rel="stylesheet" href="{% static 'feedback/feedback_list.css' %}">
+</head>
+<body>
+
+    <table class="feedback-table">
+        <thead>
+            <tr>
+                <th>Rating</th>
+                <th>Date</th>
+                <th>Feedback</th>
+                <th>View Feedback</th>
+                <th>Edit Feedback</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for feedback in feedbacks %}
+            <tr>
+                <td>{{ feedback.rating }}</td>
+                <td>{{ feedback.date }}</td>
+                <td>{{feedback.feedback}}</td>
+                <td>
+                  <a href="{% url 'feedback_detail_view' id=feedback.id %}">View Feedback </a>
+              </td>
+              <td>
+                  <a href="{% url 'edit_feedback_view' id=feedback.id %}">Edit Feedback </a>
+              </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

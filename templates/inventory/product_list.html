@@ -10,7 +10,6 @@
             flex-wrap: wrap;
             justify-content: space-between;
            text-align: center;
-           /* height: 30%; */
            
         }
         
@@ -75,6 +74,7 @@
                 <p>{{product_description}}</p>
                 <p>price: {{product.price}}</p>
                 <a href="{% url 'product_description_view' id=product.id %}">View Product</a>
+                <button id="edit"><a href="{% url 'product_update' id=product.id %}" class="edit">Edit Details</a></button>
             </div>
         </div>
         {% endfor %}
