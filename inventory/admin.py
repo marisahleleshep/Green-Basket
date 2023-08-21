@@ -4,7 +4,7 @@ from django.contrib import admin
 from .models import Product
 
 class Product_admin(admin.ModelAdmin):
-    list_display = ("name","stock","price","date_created","date_updated")
+    list_display = ("name","stock","description","price","date_created","date_updated","image")
 
 
 admin.site.register(Product,Product_admin)

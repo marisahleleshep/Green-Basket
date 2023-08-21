@@ -4,13 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /* Style the form container */
+.my-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the form elements */
+.my-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.my-form input[type="text"],
+.my-form input[type="email"],
+.my-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Style the submit button */
+.my-button {
+    background-color:green;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.my-button:hover {
+    background-color:lime;
+}
+
+    </style>
 </head>
 <body>
-    <h2>Edit Prouct Details</h2>
-    <form method="POST">
-        {%csrf_token%}
-        {{form.as_p}}
-        <button type="submit">Save</button>
-    </form>
+    <!-- <h2>Edit Prouct Details</h2> -->
+    <form method="POST" class="my-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="my-button">Save</button>
+    </form>  
 </body>
 </html>

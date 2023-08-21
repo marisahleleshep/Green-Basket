@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .order_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+/* Style each individual order details box */
+.order_details {
+    width: 30%; /* Adjust the width as needed */
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the title of the order */
+.order_details h3 {
+    font-size: 18px;
+    margin: 0;
+    color: #333;
+}
+
+/* Style the customer and order status information */
+.order_details p {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #666;
+}
+button{
+    height: 30px;
+    width: 30%;
+    border-radius: 30px;
+    background-color: chocolate;
+    color: white;
+}
+    </style>
+</head>
+<body>
+    <div class="order_container">
+        {% for order in orders %}
+            <div class="order_details">
+                <h3>{{order.item}}</h3>
+                <p>{{order.payment_details}}</p>
+                <p>{{order.order_satus}}</p>
+            </div>
+        {% endfor %}
+        </div>
+</body>
+</html>
